@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testo">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/product.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="mainController">
+
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Testo</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="orders">Orders</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="api/logout">Logout</a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+
+    <div class="container" ng-show="!success">
+      <div class="alert alert-danger" role="alert">{{ reason }}</div>
+    </div>
+
+    <div class="container" ng-show="success">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail" >
+            <h4 class="text-center"><span class="label label-info">{{ product.category }}</span></h4>
+            <img src="{{ product.image_url }}" class="img-responsive">
+            <div class="caption">
+              <div class="row">
+                <div class="col-md-6 col-xs-6">
+                  <h3>{{ product.name }}</h3>
+                </div>
+                <div class="col-md-6 col-xs-6 price">
+                  <h3>
+                  <label>{{ product.price | currency:"&#8377;"}}</label></h3>
+                </div>
+              </div>
+              <p>Manufacturer - {{ product.manufacturer }}</p>
+              <div class="row" ng-show="product.stock > 0">
+                <div class="col-md-6">
+                  <a href="#" ng-click="buy()" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
+                </div>
+              <div class="row" ng-show="product.stock == 0">
+                <div class="col-md-6">
+                  <a href="#" class="btn disabled btn-danger btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Sold out</a></div>
+                </div>
+              <p> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/product.js"></script>
+  </body>
+</html>

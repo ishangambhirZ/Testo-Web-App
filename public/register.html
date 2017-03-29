@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testo">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/register.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="mainController">
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            <form role="form">
+              <div class="form-group">
+                <h2>Create account</h2>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="signupName">Your name</label>
+                <input ng-model="formData.name" id="signupName" type="text" maxlength="50" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="signupPhoneNumber">Phone number</label>
+                <input ng-model="formData.phone_number" id="signupPhoneNumber" type="text" maxlength="10" placeholder="exactly 10 digits" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="signupPassword">Password</label>
+                <input ng-model="formData.password" id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40" required>
+              </div>
+              <div class="form-group">
+                <button ng-click="registerUser()" id="signupSubmit" type="submit" class="btn btn-primary btn-block">Create your account</button>
+              </div>
+              <p></p>Already have an account? <a href="login">Sign in</a></p>
+              <div ></div>
+              <p ng-show="success" class="testo-success bg-success" ngCloak>{{ reason }}</p>
+              <p ng-show="!success" class="bg-danger" ngCloak>{{ reason }}</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>
